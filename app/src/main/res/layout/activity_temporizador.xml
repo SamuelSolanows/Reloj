@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".Temporizador">
+
+    <FrameLayout
+        android:id="@+id/carView"
+        android:layout_width="match_parent"
+        android:layout_height="304dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/fond_cardview"
+        android:translationY="-30dp">
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="00"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="50sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text=":"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="50sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="00"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="50sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text=":"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="50sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="00"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textSize="50sp" />-->
+        <!--        </LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/npHoras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:np_selectedTextColor="@color/white"
+                android:layout_weight="1"
+                app:np_dividerColor="@color/white"
+                app:np_max="99"
+                app:np_textColor="@color/white"
+                app:np_textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/npMinutos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:np_dividerColor="@color/white"
+                app:np_selectedTextColor="@color/white"
+                app:np_max="59"
+                app:np_textColor="@color/white"
+                app:np_textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/npSegundos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:np_selectedTextColor="@color/white"
+                app:np_dividerColor="@color/white"
+                app:np_max="59"
+                app:np_textColor="@color/white"
+                app:np_textSize="30sp" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</FrameLayout>
