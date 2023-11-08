@@ -9,35 +9,77 @@ import com.example.reloj.databinding.ActivityTemporizadorBinding
 
 class Temporizador : AppCompatActivity() {
     lateinit var binding: ActivityTemporizadorBinding
+
+    private var isRunning = false
+    private var timer: CountDownTimer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTemporizadorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var alert = AlertDialog.Builder(this).setView(R.layout.alerta).create()
-        binding.carView.setOnClickListener {
+        binding.apply {
+            btnPlay.setOnClickListener {
+                stopTimer()
+            }
+            btnStop.setOnClickListener {
 
+                startTimer()
+            }
         }
 
 
     }
 
-    var hora = binding.npHoras.value
-    var minuto = binding.npMinutos.value
-    var segundo = binding.npSegundos.value
-    var timer = object : CountDownTimer(999999999999999999, 1000) {
 
-        override fun onTick(millisUntilFinished: Long) {
+    private fun startTimer() {
+        val totalMilliseconds =
+            (binding.npHoras.value * 3600000L) +
+                    (binding.npMinutos.value * 60000L) +
+                    (binding.npSegundos.value * 1000L)
 
-        }
 
-        override fun onFinish() {
-            TODO("Not yet implemented")
-        }
+
+        timer = object : CountDownTimer(totalMilliseconds, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val hours = millisUntilFinished / 3600000
+                val minutes = (millisUntilFinished % 3600000) / 60000
+                val seconds = (millisUntilFinished % 60000) / 1000
+
+                binding.npHoras.value = hours.toInt()
+                binding.npMinutos.value = minutes.toInt()
+                binding.npSegundos.value = seconds.toInt()
+            }
+
+            override fun onFinish() {
+                stopTimer()
+            }
+        }.start()
     }
 
-    private fun CuentaRegresiva() {
-
-
+    private fun stopTimer() {
+        timer?.cancel()
     }
+
+
+//    private fun CuentaRegresiva() {
+//        var hora = binding.npHoras.value
+//        var minuto = binding.npMinutos.value
+//        var segundo = binding.npSegundos.value
+//        var k = 0
+//        if (hora == 0 && minuto == 0){
+//            k=se
+//        }
+//        var timer = object : CountDownTimer(999999999999999999, 1000) {
+//
+//            override fun onTick(millisUntilFinished: Long) {
+//
+//            }
+//
+//            override fun onFinish() {
+//                TODO("Not yet implemented")
+//            }
+//        }
+//
+//
+//    }
 }
